@@ -1,7 +1,5 @@
 package com.challenge.easy.arrays;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Given an array of strings words, return the first palindromic string in the array. If there is no such string, return an empty string "".
@@ -32,6 +30,7 @@ import java.util.Map;
  */
 public class FindFirstPalindrome {
 
+    // O(n*m)
     public static String firstPalindrome(String[] words) {
         for (String currentWord : words) {
             int wordLength = currentWord.length();
