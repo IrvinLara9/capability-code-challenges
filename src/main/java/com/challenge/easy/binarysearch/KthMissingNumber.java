@@ -30,8 +30,42 @@ package com.challenge.easy.binarysearch;
  */
 public class KthMissingNumber {
 
+    // O(n + k)
+    public static int findKthPositiveFirstSolution(int[] arr, int k) {
+        int missingNumbersCount = 0;
+        int existingNumbersCount = 0;
+        int i = 1;
+
+        while (missingNumbersCount < k) {
+            if (existingNumbersCount < arr.length && arr[existingNumbersCount] == i) {
+                existingNumbersCount++;
+            } else {
+                missingNumbersCount++;
+            }
+            if (missingNumbersCount < k) {
+                i++;
+            }
+        }
+        return i;
+    }
+
+    // O(log n)
     public static int findKthPositive(int[] arr, int k) {
-        return 0;
+        int leftIndex = 0;
+        int rightIndex = arr.length - 1;
+
+        while (leftIndex <= rightIndex) {
+            int midIndex = leftIndex + (rightIndex - leftIndex) / 2;
+            int missing = arr[midIndex] - (midIndex + 1);
+
+            if (missing < k) {
+                leftIndex = midIndex + 1;
+            } else {
+                rightIndex = midIndex - 1;
+            }
+        }
+
+        return leftIndex + k;
     }
 
     public static void main(String[] args) {
