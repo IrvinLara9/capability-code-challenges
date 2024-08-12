@@ -1,5 +1,8 @@
 package com.challenge.easy.string;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
 
      # Jewels and Stones
@@ -25,8 +28,37 @@ package com.challenge.easy.string;
  */
 public class JewelsAndStones {
 
+    // O(m * n)
+    public static int numJewelsInStonesFirstApproach(String jewels, String stones) {
+        int jewelsCount = 0;
+        for (int i = 0; i < stones.length(); i++) {
+            char currentStone = stones.charAt(i);
+
+            if (jewels.contains(String.valueOf(currentStone))) {
+                jewelsCount++;
+            }
+        }
+
+        return jewelsCount;
+    }
+
+    // O(m + n)
     public static int numJewelsInStones(String jewels, String stones) {
-        return 0;
+        Set<Character> jewelSet = new HashSet<>();
+        for (char jewel : jewels.toCharArray()) {
+            jewelSet.add(jewel);
+        }
+
+        int jewelsCount = 0;
+        for (int i = 0; i < stones.length(); i++) {
+            char currentStone = stones.charAt(i);
+
+            if (jewelSet.contains(currentStone)) {
+                jewelsCount++;
+            }
+        }
+
+        return jewelsCount;
     }
 
     public static void main(String[] args) {

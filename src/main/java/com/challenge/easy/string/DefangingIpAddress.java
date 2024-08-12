@@ -22,6 +22,7 @@ package com.challenge.easy.string;
  */
 public class DefangingIpAddress {
 
+    // O(n)
     public static String defangIPaddr(String address) {
         return address.replace(".", "[.]");
     }
