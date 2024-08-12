@@ -24,8 +24,28 @@ package com.challenge.easy.string;
  */
 public class CheckSentenceIsPangram {
 
+    // O(n)
     public static boolean checkIfPangram(String sentence) {
-        return false;
+        int ENGLISH_LETTERS = 26;
+        sentence = sentence.toLowerCase();
+
+        boolean[] lettersContained = new boolean[ENGLISH_LETTERS];
+
+        for (int i = 0; i < sentence.length(); i++) {
+            char currentLetter = sentence.charAt(i);
+            if (Character.isLetter(currentLetter)) {
+                int letterIndex = currentLetter - 'a';
+                lettersContained[letterIndex] = true;
+            }
+        }
+
+        for (int i = 0; i < ENGLISH_LETTERS; i++) {
+            if (!lettersContained[i]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {

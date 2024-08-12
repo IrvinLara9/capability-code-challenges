@@ -35,6 +35,7 @@ package com.challenge.easy.string;
  */
 public class BalancedString {
 
+    // O(n)
     public static int balancedStringSplit(String s) {
         int balancedSubstringCount = 0;
         int balance = 0;
