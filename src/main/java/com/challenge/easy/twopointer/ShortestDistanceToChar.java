@@ -28,6 +28,7 @@ package com.challenge.easy.twopointer;
  */
 public class ShortestDistanceToChar {
 
+    // O(n)
     public static int[] shortestToChar(String s, char c) {
         int stringLength = s.length();
         int[] answerArray = new int[stringLength];
