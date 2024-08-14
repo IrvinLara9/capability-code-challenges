@@ -31,8 +31,20 @@ package com.challenge.easy.string;
  */
 public class SortingSentence {
 
+    // O(n)
     public static String sortSentence(String s) {
-        return null;
+        String[] words = s.split(" ");
+
+        String[] sortedWords = new String[words.length];
+
+
+        for (String word : words) {
+            int position = word.charAt(word.length() - 1) - '0';
+
+            sortedWords[position - 1] = word.substring(0, word.length() - 1);
+        }
+
+        return String.join(" ", sortedWords);
     }
 
     public static void main(String[] args) {
