@@ -33,8 +33,29 @@ package com.challenge.easy.matrix;
  */
 public class FlippingImage {
 
+
     public static int[][] flipAndInvertImage(int[][] image) {
-        return null;
+        for (int i = 0; i < image.length; i++) {
+            int rowLength = image[i].length;
+            for (int j = 0; j < (rowLength + 1) / 2; j++) {
+                int indexToSwap = rowLength - 1 - j;
+                int aux = image[i][j];
+                image[i][j] = invertValue(image[i][indexToSwap]);
+                image[i][indexToSwap] = invertValue(aux);
+            }
+        }
+
+        return image;
+    }
+
+    public static int invertValue(int value) {
+        if (value == 1) {
+            return 0;
+        } else if (value == 0) {
+            return 1;
+        }
+
+        return value;
     }
 
     public static void main(String[] args) {
