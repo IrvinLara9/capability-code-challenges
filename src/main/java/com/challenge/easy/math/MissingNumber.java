@@ -1,5 +1,8 @@
 package com.challenge.easy.math;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
     # Missing Number
 
@@ -29,8 +32,17 @@ package com.challenge.easy.math;
  */
 public class MissingNumber {
 
+    // O(n)
     public static int missingNumber(int[] nums) {
-        return 0;
+        int numsLength = nums.length;
+        int expectedSum = numsLength * (numsLength + 1) / 2;
+        int currentSum = 0;
+
+        for (int num : nums) {
+            currentSum += num;
+        }
+
+        return expectedSum - currentSum;
     }
 
     public static void main(String[] args) {
