@@ -1,8 +1,5 @@
 package com.challenge.easy.math;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
     # Missing Number
 
