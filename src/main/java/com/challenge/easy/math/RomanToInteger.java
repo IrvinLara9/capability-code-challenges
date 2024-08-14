@@ -65,8 +65,9 @@ public class RomanToInteger {
 
         for (int i = 0; i < stringLength; i++) {
             int currentRomanValue = romanValuesMap.get(s.charAt(i));
+            boolean isNotTheLast = i < stringLength - 1;
 
-            if (i < stringLength - 1 && currentRomanValue < romanValuesMap.get(s.charAt(i + 1))) {
+            if (isNotTheLast && currentRomanValue < romanValuesMap.get(s.charAt(i + 1))) {
                 resultValue -= currentRomanValue;
             } else {
                 resultValue += currentRomanValue;
