@@ -43,8 +43,22 @@ package com.challenge.easy.matrix;
  */
 public class MatrixDiagonalSum {
 
+    // O(n)
     public static int diagonalSum(int[][] mat) {
-        return 0;
+        int resultValue = 0;
+
+        for (int i = 0; i < mat.length; i++) {
+            int rowLength = mat[i].length;
+            int primaryDiagonalValue = mat[i][i];
+            int secondaryDiagonalIndex = rowLength - 1 - i;
+            int secondaryDiagonalValue = mat[i][secondaryDiagonalIndex];
+            resultValue += primaryDiagonalValue;
+            if (i != secondaryDiagonalIndex) {
+                resultValue += secondaryDiagonalValue;
+            }
+        }
+
+        return resultValue;
     }
 
     public static void main(String[] args) {
